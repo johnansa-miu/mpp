@@ -5,6 +5,12 @@
 
 # Lab 1
 
+- [Problem 1](#problem-1)  
+- [Problem 2](#problem-2)  
+
+
+
+
 ## Problem 1
 
 
@@ -17,4 +23,9 @@
 | User takes cash and a receipt | System displays a transaction completion message and returns to the main screen |
 
 ## Problem 2
-<img src="use_case_atm.png" alt="Assignment"/>
+<img src="problem2.png" alt="Assignment"/>
+
+## Problem 3
+<img src="problem3.png" alt="Assignment"/>
+
+*Note:* The id and name attributes were not explicitly mentioned, but included sine the objects generated from the classes needs to be uniquely identified throug their ids.
