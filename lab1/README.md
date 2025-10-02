@@ -28,4 +28,7 @@
 ## Problem 3
 <img src="problem3.png" alt="Assignment"/>
 
-*Note:* The id and name attributes were not explicitly mentioned, but included sine the objects generated from the classes needs to be uniquely identified throug their ids.
+*Note:* The id attributes were not explicitly mentioned, but included sine the objects generated from the classes needs to be uniquely identified throug their ids.
+
+## Problem 4
+<img src="problem4.png" alt="Assignment"/>
