@@ -6,7 +6,9 @@
 # Lab 1
 
 - [Problem 1](#problem-1)  
-- [Problem 2](#problem-2)  
+- [Problem 2](#problem-2) 
+- [Problem 3](#problem-3)  
+- [Problem 4](#problem-4)  
 
 
 
