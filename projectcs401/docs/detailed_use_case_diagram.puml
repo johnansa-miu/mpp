@@ -1,0 +1,176 @@
+@startuml EEMS_Use_Case_Diagram
+title Employee and Enterprise Management System (EEMS)\nUse Case Diagram
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+' Actors
+actor "System Administrator" as Admin
+actor "Department Manager" as DeptMgr
+actor "Project Manager" as ProjMgr
+actor "HR Manager" as HRMgr
+actor "Finance Manager" as FinMgr
+actor "Client Manager" as ClientMgr
+
+' System boundary
+rectangle "EEMS System" {
+
+    ' Employee Management Use Cases
+    package "Employee Management" {
+        usecase "Manage Employees" as UC1
+        usecase "Create Employee" as UC1.1
+        usecase "Update Employee" as UC1.2
+        usecase "Delete Employee" as UC1.3
+        usecase "View Employee Details" as UC1.4
+        usecase "Transfer Employee to Department" as UC2
+        usecase "Find Employees by Department" as UC3
+        usecase "Find Employees by Salary" as UC4
+        usecase "Calculate Department Salary Expense" as UC5
+        usecase "Calculate Average Salary" as UC6
+    }
+
+    ' Department Management Use Cases
+    package "Department Management" {
+        usecase "Manage Departments" as UC7
+        usecase "Create Department" as UC7.1
+        usecase "Update Department" as UC7.2
+        usecase "Delete Department" as UC7.3
+        usecase "View Department Details" as UC7.4
+        usecase "Get Projects by Department" as UC8
+        usecase "Find Departments by Location" as UC9
+        usecase "Get Employee Count" as UC10
+        usecase "Find Departments by Budget" as UC11
+        usecase "Sort Departments by Employee Count" as UC12
+        usecase "Check Department Budget Status" as UC13
+        usecase "Get Departments Over Budget" as UC14
+        usecase "Calculate Department Project Budget" as UC15
+    }
+
+    ' Project Management Use Cases
+    package "Project Management" {
+        usecase "Manage Projects" as UC16
+        usecase "Create Project" as UC16.1
+        usecase "Update Project" as UC16.2
+        usecase "Delete Project" as UC16.3
+        usecase "View Project Details" as UC16.4
+        usecase "Calculate Project HR Cost" as UC17
+        usecase "Find Projects Ending Soon" as UC18
+        usecase "Find Projects by Status" as UC19
+        usecase "Find Projects by Budget Range" as UC20
+        usecase "Assign Employees to Project" as UC21
+        usecase "Assign Department to Project" as UC22
+    }
+
+    ' Client Management Use Cases
+    package "Client Management" {
+        usecase "Manage Clients" as UC23
+        usecase "Create Client" as UC23.1
+        usecase "Update Client" as UC23.2
+        usecase "Delete Client" as UC23.3
+        usecase "View Client Details" as UC23.4
+        usecase "Find Clients by Upcoming Deadline" as UC24
+        usecase "Find Clients by Industry" as UC25
+        usecase "Get Projects for Client" as UC26
+        usecase "Calculate Client Total Budget" as UC27
+        usecase "Find High-Value Clients" as UC28
+    }
+
+    ' Financial Reporting Use Cases
+    package "Financial Reporting" {
+        usecase "Generate Financial Reports" as UC29
+        usecase "Calculate Project Cost" as UC30
+        usecase "Calculate Total Expenses" as UC31
+        usecase "Budget Analysis" as UC32
+    }
+}
+
+' Actor Relationships with Use Cases
+
+' System Administrator - Full Access
+Admin --> UC1
+Admin --> UC7
+Admin --> UC16
+Admin --> UC23
+
+' HR Manager - Employee focused
+HRMgr --> UC1
+HRMgr --> UC2
+HRMgr --> UC3
+HRMgr --> UC4
+HRMgr --> UC5
+HRMgr --> UC6
+
+' Department Manager - Department and Employee management
+DeptMgr --> UC7
+DeptMgr --> UC8
+DeptMgr --> UC9
+DeptMgr --> UC10
+DeptMgr --> UC11
+DeptMgr --> UC12
+DeptMgr --> UC13
+DeptMgr --> UC14
+DeptMgr --> UC15
+DeptMgr --> UC3
+DeptMgr --> UC5
+
+' Project Manager - Project focused
+ProjMgr --> UC16
+ProjMgr --> UC17
+ProjMgr --> UC18
+ProjMgr --> UC19
+ProjMgr --> UC20
+ProjMgr --> UC21
+ProjMgr --> UC22
+ProjMgr --> UC8
+
+' Finance Manager - Financial and reporting
+FinMgr --> UC29
+FinMgr --> UC30
+FinMgr --> UC31
+FinMgr --> UC32
+FinMgr --> UC5
+FinMgr --> UC13
+FinMgr --> UC14
+FinMgr --> UC17
+FinMgr --> UC27
+
+' Client Manager - Client focused
+ClientMgr --> UC23
+ClientMgr --> UC24
+ClientMgr --> UC25
+ClientMgr --> UC26
+ClientMgr --> UC27
+ClientMgr --> UC28
+
+' Include/Extend Relationships
+UC1 .> UC1.1 : <<include>>
+UC1 .> UC1.2 : <<include>>
+UC1 .> UC1.3 : <<include>>
+UC1 .> UC1.4 : <<include>>
+
+UC7 .> UC7.1 : <<include>>
+UC7 .> UC7.2 : <<include>>
+UC7 .> UC7.3 : <<include>>
+UC7 .> UC7.4 : <<include>>
+
+UC16 .> UC16.1 : <<include>>
+UC16 .> UC16.2 : <<include>>
+UC16 .> UC16.3 : <<include>>
+UC16 .> UC16.4 : <<include>>
+
+UC23 .> UC23.1 : <<include>>
+UC23 .> UC23.2 : <<include>>
+UC23 .> UC23.3 : <<include>>
+UC23 .> UC23.4 : <<include>>
+
+UC29 .> UC30 : <<include>>
+UC29 .> UC31 : <<include>>
+UC29 .> UC32 : <<include>>
+
+UC17 ..> UC3 : <<extend>>
+UC30 ..> UC17 : <<extend>>
+UC31 ..> UC5 : <<extend>>
+
+@enduml
+

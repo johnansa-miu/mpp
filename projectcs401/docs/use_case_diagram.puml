@@ -1,0 +1,96 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Employee
+actor DepartmentManager
+actor Client
+
+rectangle EEMS {
+  Admin -- (Manage Employees)
+  note right of (Manage Employees)
+    System: Employee record created, updated, or deleted.
+  end note
+
+  Admin -- (Manage Departments)
+  note right of (Manage Departments)
+    System: Department record created, updated, or deleted.
+  end note
+
+  Admin -- (Manage Projects)
+  note right of (Manage Projects)
+    System: Project record created, updated, or deleted.
+  end note
+
+  Admin -- (Assign Employees to Project)
+  note right of (Assign Employees to Project)
+    System: Employee assigned to selected project.
+  end note
+
+  Admin -- (Assign Departments to Project)
+  note right of (Assign Departments to Project)
+    System: Department assigned to selected project.
+  end note
+
+  Admin -- (Calculate Project Cost)
+  note right of (Calculate Project Cost)
+    System: Project cost calculated and displayed.
+  end note
+
+  Admin -- (View Project Status)
+  note right of (View Project Status)
+    System: Current status of project shown.
+  end note
+
+  Admin -- (Manage Clients)
+  note right of (Manage Clients)
+    System: Client record created, updated, or deleted.
+  end note
+
+  Admin -- (Assign Clients to Project)
+  note right of (Assign Clients to Project)
+    System: Client assigned to selected project.
+  end note
+
+  Admin -- (Search/Sort Projects)
+  note right of (Search/Sort Projects)
+    System: Projects listed according to search/sort criteria.
+  end note
+
+  Employee -- (View Assigned Projects)
+  note right of (View Assigned Projects)
+    System: List of projects assigned to employee displayed.
+  end note
+
+  Employee -- (Update Project Status)
+  note right of (Update Project Status)
+    System: Project status updated.
+  end note
+
+  DepartmentManager -- (View Department Projects)
+  note right of (View Department Projects)
+    System: List of department projects displayed.
+  end note
+
+  DepartmentManager -- (Assign Department Employees)
+  note right of (Assign Department Employees)
+    System: Employees assigned to department.
+  end note
+
+  DepartmentManager -- (Update Department Info)
+  note right of (Update Department Info)
+    System: Department information updated.
+  end note
+
+  Client -- (View Project Status)
+  note right of (View Project Status)
+    System: Project status shown to client.
+  end note
+
+  Client -- (Request Project)
+  note right of (Request Project)
+    System: Project request submitted.
+  end note
+}
+
+@enduml
